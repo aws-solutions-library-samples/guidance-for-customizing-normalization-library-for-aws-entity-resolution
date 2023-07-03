@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+   <!-- <property name="basedir" value="${basedir}"/> -->
+
+
+    <module name="SuppressWarningsFilter" />
+
+
+    <module name="LineLength">
+	<property name="max" value="150"/>
+    </module>
+
+    <module name="TreeWalker">
+        <!-- Avoid imports from these packages.
+            edu.emory.mathcs.backport - This library is intended to support pre-Java 6 JVMs. Please use the standard library.
+            com.amazon.coral.google - this is the Coral team's internal import of Guava for their use. Please use normal Guava.
+            org.joda - This is deprecated as of Java 8. Please prefer the classes in java.time, like Instant and Clock.
+            sun / com.sun - These are internal, proprietary Sun APIs that may break or be removed in a JVM update.
+         -->
+        <module name="SuppressWarningsHolder" />
+
+        <module name="SuppressionCommentFilter">
+            <property name="offCommentFormat" value="CHECKSTYLE\:SUPPRESS\:([\w\|]+)"/>
+            <property name="onCommentFormat" value="CHECKSTYLE\:UNSUPPRESS\:([\w\|]+)$"/>
+            <property name="checkFormat" value="$1"/>
+        </module>
+
+	<module name="MissingJavadocMethodCheck">
+	    <property name="allowMissingPropertyJavadoc" value="true"/>
+            <property name="ignoreMethodNamesRegex" value="^(main|(with|get|set|)).*$"/>
+	</module>
+
+        <module name="IllegalImport">
+            <property name="illegalPkgs"
+                      value="edu.emory.mathcs.backport,
+         com.amazon.coral.google,
+         org.joda,
+         sun, com.sun"/>
+        </module>
+
+        <module name="FallThrough"/>
+
+        <module name="JavadocStyle">
+            <property name="checkFirstSentence" value="false"/> <!-- We have better things to worry about then putting a period at the end of sentence -->
+            <property name="tokens" value="CLASS_DEF, ENUM_DEF, INTERFACE_DEF, METHOD_DEF"/>
+        </module>
+        <module name="EmptyStatement"/>
+        <module name="EqualsAvoidNull"/>
+        <module name="InnerAssignment"/>
+        <module name="ParameterAssignment"/>
+        <module name="DefaultComesLast"/>
+        <module name="MissingSwitchDefault"/>
+        <module name="MethodLength"/> <!-- max 150 lines -->
+        <module name="ParameterNumber"/> <!-- max 7 for both constructor and methods -->
+        <module name="VariableDeclarationUsageDistance">
+            <property name="allowedDistance" value="10"/>
+            <property name="ignoreFinal" value="false"/>
+        </module>
+
+        <module name="LocalVariableName">
+            <property name="allowOneCharVarInForLoop" value="true"/>
+        </module>
+        <module name="HiddenField">
+            <property name="ignoreAbstractMethods" value="true"/>
+            <property name="ignoreConstructorParameter" value="true"/>
+            <property name="ignoreSetter" value="true"/>
+        </module>
+        <module name="AnonInnerLength"/>
+        <module name="CyclomaticComplexity"/>
+        <module name="MultipleStringLiterals">
+            <property name="allowedDuplicates" value="2"/>
+        </module>
+        <module name="NestedForDepth">
+            <property name="max" value="3"/>
+        </module>
+        <module name="NestedIfDepth">
+            <property name="max" value="3"/>
+        </module>
+        <module name="NestedTryDepth">
+            <property name="max" value="3"/>
+        </module>
+    </module>
+</module>
