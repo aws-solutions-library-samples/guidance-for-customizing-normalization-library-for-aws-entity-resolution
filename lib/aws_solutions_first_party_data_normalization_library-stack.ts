@@ -36,7 +36,7 @@ export class AwsSolutionsFirstPartyDataNormalizationLibraryStack extends cdk.Sta
 
 
     const jarAsset = new Asset(this, 'JAR', {
-        path: path.join(__dirname, '..', 'target', 'venice-normalization-1.0-SNAPSHOT-jar-with-dependencies.jar'),
+        path: path.join(__dirname, '..', 'target', 'AWSSolutionsFirstPartyDataNormalizationLibrary-1.0-SNAPSHOT-jar-with-dependencies.jar'),
     });
 
     // Upload job script as S3 asset
