@@ -34,16 +34,6 @@ export class AwsSolutionsFirstPartyDataNormalizationLibraryStack extends cdk.Sta
         destinationBucket: s3Bucket
     })
 
-/*
-    const jarAsset = new Asset(this, 'JAR', {
-        path: path.join(__dirname, '..', 'target', 'AWSSolutionsFirstPartyDataNormalizationLibrary-1.0-SNAPSHOT-jar-with-dependencies.jar'),
-    });
-
-    // Upload job script as S3 asset
-    const scriptAsset = new Asset(this, 'Script', {
-        path: path.join(__dirname, '..', 'glue', 'script.scala'),
-    });
-*/
     const inputBucket = s3.Bucket.fromBucketName(this, 'InputBucketByName', 'id-resoultion-jan272023');
     const outputBucket = s3.Bucket.fromBucketName(this, 'OutputBucketByName', 'id-resoultion-jan272023');
 
@@ -60,8 +50,6 @@ export class AwsSolutionsFirstPartyDataNormalizationLibraryStack extends cdk.Sta
     outputBucket.grantReadWrite(jobRole)
     s3Bucket.grantRead(jobRole)
     outputS3Bucket.grantReadWrite(jobRole)
-    //jarAsset.grantRead(jobRole)
-    //scriptAsset.grantRead(jobRole)
 
 
 // Create Glue Job
