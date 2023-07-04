@@ -38,7 +38,7 @@ cdk boostrap
 Run the following commands to compile the normalization library
 ~~~
 #navigate to the source folder
-cd AWSSolutionsFirstPartyDataNormalizationLibrary
+cd guidance-for-cleansing-data-using-open-source-normalization-rules-on-aws
 
 #compile the project using maven
 mvn clean package
