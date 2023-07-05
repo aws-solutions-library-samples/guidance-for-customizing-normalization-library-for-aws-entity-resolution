@@ -51,7 +51,7 @@ You can deploy this solution in your AWS Account via the CDK scripts provided.
 > Note - In case your local machine is not configured to communicate with your AWS account, please follow the instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-short-term.html).
 ~~~
 #navigate to the source folder
-cd AWSSolutionsFirstPartyDataNormalizationLibrary
+cd guidance-for-cleansing-data-using-open-source-normalization-rules-on-aws
 
 #bootstrap the cdk environment
 cdk boostrap
