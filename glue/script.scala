@@ -44,17 +44,6 @@ object GlueApp extends Serializable {
     staticData.printSchema()
 
     val normalizer = new Normalizer()
-
-    /*
-    val normalizeColumn = udf((value:String) => {
-        return "shah"
-        //normalizer.normalizeAddress(value, "")
-    })
-
-    staticData.withColumn("normalized_address", normalizeColumn($"address1")).show()
-    */
-
-
     val schema = staticData.schema
     val normalizedFields = StructType(Array(
       StructField("normalized_address", StringType, true),
