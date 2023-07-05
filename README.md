@@ -30,7 +30,7 @@ In order to build this solution on your local environment, you will need to have
 The project code requires that the AWS account is [bootstrapped](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html) to allow the deployment of the CDK stack. You may do so by running the following command:
 
 ~~~
-cdk boostrap
+cdk bootstrap aws://ACCOUNT-NUMBER-1/REGION-1
 ~~~
 
 
