@@ -61,7 +61,7 @@ npm install
 npm install cdk-nag
 
 
-#deploy the adserver hosting the ml model
+#deploy the stack
 cdk deploy --require-approval never
 ~~~
 
