@@ -54,7 +54,7 @@ You can deploy this solution in your AWS Account via the CDK scripts provided.
 cd guidance-for-cleansing-data-using-open-source-normalization-rules-on-aws
 
 #bootstrap the cdk environment
-cdk boostrap
+cdk bootstrap aws://ACCOUNT-NUMBER-1/REGION-1
 
 #install all the module dependencies
 npm install
