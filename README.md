@@ -50,10 +50,10 @@ mvn clean package
 You can deploy this solution in your AWS Account via the CDK scripts provided.
 > Note - In case your local machine is not configured to communicate with your AWS account, please follow the instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-short-term.html).
 ~~~
-#navigate to the source folder
+#navigate to the source folder (if you are already in the source folder you can skip this command)
 cd guidance-for-cleansing-data-using-open-source-normalization-rules-on-aws
 
-#bootstrap the cdk environment
+#bootstrap the cdk environment (if your environment is not bootstraped)
 cdk bootstrap aws://ACCOUNT-NUMBER-1/REGION-1
 
 #install all the module dependencies
