@@ -30,7 +30,7 @@ In order to build this solution on your local environment, you will need to have
 The project code requires that the AWS account is [bootstrapped](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html) to allow the deployment of the CDK stack. You may do so by running the following command:
 
 ~~~
-cdk bootstrap aws://ACCOUNT-NUMBER-1/REGION-1
+cdk bootstrap
 ~~~
 
 
@@ -53,13 +53,12 @@ You can deploy this solution in your AWS Account via the CDK scripts provided.
 #navigate to the source folder (if you are already in the source folder you can skip this command)
 cd guidance-for-cleansing-data-using-open-source-normalization-rules-on-aws
 
-#bootstrap the cdk environment (if your environment is not bootstraped)
-cdk bootstrap aws://ACCOUNT-NUMBER-1/REGION-1
-
 #install all the module dependencies
 npm install
 npm install cdk-nag
 
+#bootstrap the cdk environment (if your environment is not bootstraped)
+cdk bootstrap
 
 #deploy the stack
 cdk deploy --require-approval never
