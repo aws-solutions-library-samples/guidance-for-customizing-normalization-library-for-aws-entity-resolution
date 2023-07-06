@@ -119,4 +119,4 @@ Run the following command to delete the stack from your Account.
 cdk destroy
 ```
 
-Once the stack has been deleted successfully, you may delete the input and output Amazon S3 buckets manually by visiting the AWS S3 Console oage.   
+Once the stack has been deleted successfully, you may delete the input and output Amazon S3 buckets manually by visiting the AWS S3 Console page.   
