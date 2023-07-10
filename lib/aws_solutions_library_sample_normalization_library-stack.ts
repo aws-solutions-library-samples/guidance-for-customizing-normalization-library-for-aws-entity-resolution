@@ -7,16 +7,13 @@ import * as iam from "aws-cdk-lib/aws-iam"
 import * as path from "path"
 import * as glue from '@aws-cdk/aws-glue-alpha'
 
-//import * as glue from 'aws-cdk-lib/aws-glue-alpha'
 
-
-
-export class AwsSolutionsFirstPartyDataNormalizationLibraryStack extends cdk.Stack {
+export class AwsSolutionsLibrarySampleNormalizationLibraryStack extends cdk.Stack {
 
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const s3Bucket = new s3.Bucket(this, "normalization-input-bucket", {
+    const inputs3Bucket = new s3.Bucket(this, "normalization-input-bucket", {
         versioned: true,
         enforceSSL: true,
         serverAccessLogsPrefix: "normalization-input-bucket"
@@ -31,11 +28,8 @@ export class AwsSolutionsFirstPartyDataNormalizationLibraryStack extends cdk.Sta
 
     new s3deploy.BucketDeployment(this, "normalization-library-deployment", {
         sources:[s3deploy.Source.asset('sample/')],
-        destinationBucket: s3Bucket
+        destinationBucket: inputs3Bucket
     })
-
-    const inputBucket = s3.Bucket.fromBucketName(this, 'InputBucketByName', 'id-resoultion-jan272023');
-    const outputBucket = s3.Bucket.fromBucketName(this, 'OutputBucketByName', 'id-resoultion-jan272023');
 
     // Create Glue Job role
     const jobRole = new iam.Role(this, 'JobRole', {
@@ -46,9 +40,7 @@ export class AwsSolutionsFirstPartyDataNormalizationLibraryStack extends cdk.Sta
         ],
     });
 
-    inputBucket.grantRead(jobRole)
-    outputBucket.grantReadWrite(jobRole)
-    s3Bucket.grantRead(jobRole)
+    inputs3Bucket.grantRead(jobRole)
     outputS3Bucket.grantReadWrite(jobRole)
 
 
@@ -58,17 +50,17 @@ export class AwsSolutionsFirstPartyDataNormalizationLibraryStack extends cdk.Sta
             glueVersion: glue.GlueVersion.V3_0,
             script: glue.Code.fromAsset(path.join(__dirname, '../glue/script.scala')),
             className: 'GlueApp',
-            extraJars: [glue.Code.fromAsset(path.join(__dirname, '../target/AWSSolutionsFirstPartyDataNormalizationLibrary-1.0-SNAPSHOT-jar-with-dependencies.jar'))]
+            extraJars: [glue.Code.fromAsset(path.join(__dirname, '../target/NormalizationLibrary-1.0-SNAPSHOT-jar-with-dependencies.jar'))]
         }),
-        jobName: 'AwsSolutionsFirstPartyDataNormalizationETLJob',
+        jobName: 'AWSSolutionsLibrarySampleNormalizationETLJob',
         role: jobRole,
         defaultArguments: {
-            '--input_path':`s3://${s3Bucket.bucketName}/synthetic_testData10k.csv`,
+            '--input_path':`s3://${inputs3Bucket.bucketName}/synthetic_testData10k.csv`,
             '--output_path':`s3://${outputS3Bucket.bucketName}/normalized_output/`
         }
     });
 
-    new cdk.CfnOutput(this, "input data path", {value: `s3://${s3Bucket.bucketName}/`})
+    new cdk.CfnOutput(this, "input data path", {value: `s3://${inputs3Bucket.bucketName}/`})
     new cdk.CfnOutput(this, "glue normalized output path", {value: `s3://${outputS3Bucket.bucketName}/normalized_output/`})
 
   }

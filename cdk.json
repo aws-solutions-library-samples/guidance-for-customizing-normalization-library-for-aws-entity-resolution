@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/aws_solutions_first_party_data_normalization_library.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/aws_solutions_library_sample_normalization_library.ts",
   "watch": {
     "include": [
       "**"

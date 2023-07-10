@@ -22,7 +22,7 @@
     "@aws-cdk/aws-glue-alpha": "^2.83.1-alpha.0",
     "aws-cdk": "^2.83.1",
     "aws-cdk-lib": "^2.83.1",
-    "cdk-nag": "^2.27.48",
+    "cdk-nag": "^2.27.61",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.21"
   }

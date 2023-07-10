@@ -4,10 +4,10 @@ import * as cdk from 'aws-cdk-lib';
 import { App, Aspects } from 'aws-cdk-lib';
 import {AwsSolutionsChecks, NagSuppressions} from 'cdk-nag';
 
-import { AwsSolutionsFirstPartyDataNormalizationLibraryStack } from '../lib/aws_solutions_first_party_data_normalization_library-stack';
+import { AwsSolutionsLibrarySampleNormalizationLibraryStack } from '../lib/aws_solutions_library_sample_normalization_library-stack';
 
 const app = new cdk.App();
-const stack = new AwsSolutionsFirstPartyDataNormalizationLibraryStack(app, 'AwsSolutionsFirstPartyDataNormalizationLibraryStack', {
+const stack = new AwsSolutionsLibrarySampleNormalizationLibraryStack(app, 'AwsSolutionsLibrarySampleNormalizationLibraryStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */

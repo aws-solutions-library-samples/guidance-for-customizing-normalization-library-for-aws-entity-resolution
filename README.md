@@ -72,7 +72,7 @@ After deploying the Kit, continue with [Run the solution](#run-the-solution).
 Once the stack is successfully created, an AWS Glue ETL job is created.
 1. Login into the AWS Console
 2. Navigate to [AWS Glue Studio ETL Jobs](https://us-west-2.console.aws.amazon.com/gluestudio/home)
-3. Click on the Glue job named ***AwsSolutionsFirstPartyDataNormalizationETLJob***
+3. Click on the Glue job named ***AWSSolutionsLibrarySampleNormalizationETLJob***
 4. Navigate to the **Runs** tab
 5. Click on **Run**
 
