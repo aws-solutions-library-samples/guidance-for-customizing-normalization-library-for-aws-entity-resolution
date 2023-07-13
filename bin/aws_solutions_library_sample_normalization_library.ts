@@ -8,6 +8,7 @@ import { AwsSolutionsLibrarySampleNormalizationLibraryStack } from '../lib/aws_s
 
 const app = new cdk.App();
 const stack = new AwsSolutionsLibrarySampleNormalizationLibraryStack(app, 'AwsSolutionsLibrarySampleNormalizationLibraryStack', {
+    description: 'Guidance for Customizing Normalization Library for AWS Entity Resolution (SO9246)'
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
