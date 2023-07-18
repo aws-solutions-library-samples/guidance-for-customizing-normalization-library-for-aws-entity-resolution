@@ -38,7 +38,7 @@ cdk bootstrap
 Run the following commands to compile the normalization library
 ~~~
 #navigate to the source folder
-cd guidance-for-cleansing-data-using-open-source-normalization-rules-on-aws
+cd guidance-for-customizing-normalization-library-for-aws-entity-resolution 
 
 #compile the project using maven
 mvn clean package
@@ -51,7 +51,7 @@ You can deploy this solution in your AWS Account via the CDK scripts provided.
 > Note - In case your local machine is not configured to communicate with your AWS account, please follow the instructions [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-short-term.html).
 ~~~
 #navigate to the source folder (if you are already in the source folder you can skip this command)
-cd guidance-for-cleansing-data-using-open-source-normalization-rules-on-aws
+cd guidance-for-customizing-normalization-library-for-aws-entity-resolution
 
 #install all the module dependencies
 npm install
@@ -71,7 +71,7 @@ After deploying the Kit, continue with [Run the solution](#run-the-solution).
 
 Once the stack is successfully created, an AWS Glue ETL job is created.
 1. Login into the AWS Console
-2. Navigate to [AWS Glue Studio ETL Jobs](https://us-west-2.console.aws.amazon.com/gluestudio/home)
+2. Navigate to [AWS Glue Studio ETL Jobs](https://us-west-2.console.aws.amazon.com/gluestudio/home) appropriate to your AWS region
 3. Click on the Glue job named ***AWSSolutionsLibrarySampleNormalizationETLJob***
 4. Navigate to the **Runs** tab
 5. Click on **Run**
