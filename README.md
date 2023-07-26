@@ -21,7 +21,7 @@ In order to build this solution on your local environment, you will need to have
 
 ## Design
 
-![Architecture](assets/architecture.jpg)
+![Architecture](assets/architecture.png)
 
 ## Installation
 
