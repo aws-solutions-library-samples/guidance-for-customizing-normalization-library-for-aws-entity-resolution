@@ -33,3 +33,4 @@ cdk.out
 **/data/**.csv
 
 .env
+target/
