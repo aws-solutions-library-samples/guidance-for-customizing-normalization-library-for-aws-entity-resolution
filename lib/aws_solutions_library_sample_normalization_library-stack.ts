@@ -1,7 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { aws_s3 as s3 } from 'aws-cdk-lib';
-import { Asset } from 'aws-cdk-lib/aws-s3-assets';
 import * as s3deploy from "aws-cdk-lib/aws-s3-deployment"
 import * as iam from "aws-cdk-lib/aws-iam"
 import * as path from "path"
@@ -17,19 +16,18 @@ export class AwsSolutionsLibrarySampleNormalizationLibraryStack extends cdk.Stac
         versioned: true,
         enforceSSL: true,
         serverAccessLogsPrefix: "normalization-input-bucket"
-    })
+    });
 
     const outputS3Bucket = new s3.Bucket(this, "normalization-output-bucket", {
         versioned: true,
         enforceSSL: true,
         serverAccessLogsPrefix: "normalization-output-bucket"
-    })
-
+    });
 
     new s3deploy.BucketDeployment(this, "normalization-library-deployment", {
-        sources:[s3deploy.Source.asset('sample/')],
+        sources:[s3deploy.Source.asset('sample/normalization/')],
         destinationBucket: inputs3Bucket
-    })
+    });
 
     // Create Glue Job role
     const jobRole = new iam.Role(this, 'JobRole', {
